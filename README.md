@@ -142,4 +142,105 @@ for each_row in result_list: # taking each list within the large result_list, on
 
 print(comments_by_hour)
 ```
+{'09': 251,  
+ '13': 1253,  
+ '10': 793,  
+ '14': 1416,  
+ '16': 1814,  
+ '23': 543,  
+ '12': 687,  
+ '17': 1146,  
+ '15': 4477,  
+ '21': 1745,  
+ '20': 1722,  
+ '02': 1381,  
+ '18': 1439,  
+ '03': 421,  
+ '05': 464,  
+ '19': 1188,  
+ '01': 683,  
+ '22': 479,  
+ '08': 492,  
+ '04': 337,  
+ '00': 447,  
+ '06': 397,  
+ '07': 267,  
+ '11': 641}  
+ 
+# Calculating the Average Number of Comments for Ask HN Posts by Hour
+```python
+avg_by_hour = []
 
+# for each hr, we're going to create an individual list holding the hr and the average
+# (by taking the total amt of comments for that # hour and dividing it by the number of posts in that hr)
+
+for hr in comments_by_hour:
+    avg_by_hour.append([hr, comments_by_hour[hr] / counts_by_hour[hr]])
+
+print(avg_by_hour)
+```
+[['09', 5.5777777777777775],  
+ ['13', 14.741176470588234],  
+ ['10', 13.440677966101696],  
+ ['14', 13.233644859813085],  
+ ['16', 16.796296296296298],  
+ ['23', 7.985294117647059],  
+ ['12', 9.41095890410959],  
+ ['17', 11.46],  
+ ['15', 38.5948275862069],  
+ ['21', 16.009174311926607],  
+ ['20', 21.525],  
+ ['02', 23.810344827586206],  
+ ['18', 13.20183486238532],  
+ ['03', 7.796296296296297],  
+ ['05', 10.08695652173913],  
+ ['19', 10.8],  
+ ['01', 11.383333333333333],  
+ ['22', 6.746478873239437],  
+ ['08', 10.25],  
+ ['04', 7.170212765957447],  
+ ['00', 8.127272727272727],  
+ ['06', 9.022727272727273],  
+ ['07', 7.852941176470588],  
+ ['11', 11.051724137931034]]  
+ 
+ # Sorting and Printing Values from a List of Lists
+ To analyze the above data a little easier, let's sort it by the average per hour in descending order:
+ ```python
+swap_avg_by_hour = []
+
+# We're first going to swap the columns on a new list so that the average is first (Ex. [5.5777777777777775, '09'])
+for row in avg_by_hour:
+    swap_avg_by_hour.append([row[1], row[0]])
+
+# We can then use the built-in 'sorted' function which sorts by the first column, now being the average.
+# The default sort parameter is by ascending order. We can add the optional argument 'reverse=True' to sort by descending order.
+sorted_swap = sorted(swap_avg_by_hour, reverse=True)
+
+print(sorted_swap)
+```
+
+[[38.5948275862069, '15'],  
+ [23.810344827586206, '02'],  
+ [21.525, '20'],  
+ [16.796296296296298, '16'],  
+ [16.009174311926607, '21'],  
+ [14.741176470588234, '13'],  
+ [13.440677966101696, '10'],  
+ [13.233644859813085, '14'],  
+ [13.20183486238532, '18'],  
+ [11.46, '17'],  
+ [11.383333333333333, '01'],  
+ [11.051724137931034, '11'],  
+ [10.8, '19'],  
+ [10.25, '08'],  
+ [10.08695652173913, '05'],  
+ [9.41095890410959, '12'],  
+ [9.022727272727273, '06'],  
+ [8.127272727272727, '00'],  
+ [7.985294117647059, '23'],  
+ [7.852941176470588, '07'],  
+ [7.796296296296297, '03'],  
+ [7.170212765957447, '04'],  
+ [6.746478873239437, '22'],  
+ [5.5777777777777775, '09']]  
