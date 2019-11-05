@@ -9,8 +9,7 @@ There are two types of posts we will be focusing on in this project, Ask HN and 
 Ask HN: The user submits a question in which other users can provided a response or vote on their favorite response.
 Show HN: The user does not have a question but wants to show something ineresting, such as a project or an article
 
-We'll specifically compare these two types of posts to determine the following:
-
+We'll specifically compare these two types of posts to determine the following:  
 1. Do Ask HN or Show HN receive more comments on average?  
 2. Do posts created at a certain time receive more comments on average?
 
@@ -107,3 +106,8 @@ for post in show_posts:
 avg_show_comments = total_show_comments / len(show_posts)
 print(avg_show_comments)
 ```
+10.31669535283993
+
+After finding the average number of comments per post for both types of posts, we can deteremine that that ASK HN receives more comments usually. Makes sense since ASK HN posts are specifically requesting reponses/comments from other users.
+
+# Finding the Amount of Ask Posts and Comments by Hour Created
