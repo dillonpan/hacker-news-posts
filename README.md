@@ -63,4 +63,47 @@ print(hn[:3]) # print the first 3 rows to test
   'vezycash',  
   '6/23/2016 22:20']]  
   
-  
+# Extracting Ask HN and Show HN Posts
+We can create three seperate lists to filter between the Ask HN, Show HN, and other posts apart from each other. The title of both Ask HN and Show HN posts will generally start as accordingly, (EX. "Ask HN: I was wondering...etc..etc")
+```python
+ask_posts = []
+show_posts =[]
+other_posts = []
+
+for post in hn:
+    title = post[1] # the Title of the post is listed on the 2nd column of the CSV
+    if title.lower().startswith("ask hn"):
+        ask_posts.append(post)
+    elif title.lower().startswith("show hn"):
+        show_posts.append(post)
+    else:
+        other_posts.append(post)
+        
+print(len(ask_posts))
+print(len(show_posts))
+print(len(other_posts))
+```
+1744
+1162
+17194
+
+
+# Calculating the Average Number of Comments for Ask HN and Show HN Posts
+Average number of comments for ASK HN posts:
+```python
+total_ask_comments = 0
+for post in ask_posts:
+    total_ask_comments += int(post[4]) # comments are on column 5 of the CSV. Add up the number of comments per post for the total
+avg_ask_comments = total_ask_comments / len(ask_posts) # total amount of comments divided by the number of ASK HN posts
+print(avg_ask_comments)
+```
+14.038417431192661
+
+Average number of comments for SHOW HN posts:
+```python
+total_show_comments = 0
+for post in show_posts:
+    total_show_comments += int(post[4])
+avg_show_comments = total_show_comments / len(show_posts)
+print(avg_show_comments)
+```
