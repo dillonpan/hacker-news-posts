@@ -3,7 +3,7 @@
 Project using CSV Reader, list slicing, and various functions to analyze a CSV dataset in Python
 
 # Project Details:  
-Hacker News is a site where users can submit or vote on posts about technology and computer science, similiar to Reddit. Hacker News is extremely popular in technology and startup circles, and posts that make it to the 'front page' of Hacker News generate tens of, if not thousands of views.
+Hacker News is a site where users can submit or vote on posts about technology and computer science, similiar to Reddit. Hacker News is extremely popular in technology and startup circles, and posts that make it to the 'front page' of Hacker News generate tens of thousands, if not hundreds of thousands of views.
 
 There are two types of posts we will be focusing on in this project, Ask HN and Show HN posts.
 Ask HN: The user submits a question in which other users can provided a response or vote on their favorite response.
