@@ -111,3 +111,35 @@ print(avg_show_comments)
 After finding the average number of comments per post for both types of posts, we can deteremine that that ASK HN receives more comments usually. Makes sense since ASK HN posts are specifically requesting reponses/comments from other users.
 
 # Finding the Amount of Ask Posts and Comments by Hour Created
+Next, we'll determine if we can maximize the amount of comments an ask post receives by creating it at a certain time. First, we'll find the amount of ask posts created during each hour of day, along with the number of comments those posts received. Then, we'll calculate the average amount of comments ask posts created at each hour of the day receive.
+
+```python
+import datetime as dt
+
+result_list = []
+
+# We're putting each post in to a seperate list which holds the date+time a post was created and that post's number of comments
+# Afterwards, we put each individual list in to the result_list. Essentially, it's a bunch of seperate lists within one large list
+for post in ask_posts:
+    result_list.append(
+        [post[6], int(post[4])]  # each individual list contains, in order: date+time creation, number of comments
+    )
+
+comments_by_hour = {} # dictionary to keep track of how many comments in each hour
+counts_by_hour = {} # dictionary to keep track of how many posts in each hour
+date_format = "%m/%d/%Y %H:%M" # Regex formatting that works with the datetime package
+
+for each_row in result_list: # taking each list within the large result_list, one at a time
+    date = each_row[0] # taking the creation date+time 
+    comment = each_row[1] # taking the number of comments
+    time = dt.datetime.strptime(date, date_format).strftime("%H") # filtering out the Hour
+    if time in counts_by_hour:
+        comments_by_hour[time] += comment
+        counts_by_hour[time] += 1
+    else:
+        comments_by_hour[time] = comment
+        counts_by_hour[time] = 1
+
+print(comments_by_hour)
+```
+
