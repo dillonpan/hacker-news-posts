@@ -11,7 +11,7 @@ Show HN: The user does not have a question but wants to show something inerestin
 
 We'll specifically compare these two types of posts to determine the following:
 
-Do Ask HN or Show HN receive more comments on average?
-Do posts created at a certain time receive more comments on average?
+1. Do Ask HN or Show HN receive more comments on average?  
+2. Do posts created at a certain time receive more comments on average?
 
 It should be noted that the data set we're working with was reduced from almost 300,000 rows to approximately 20,000 rows by removing all submissions that did not receive any comments, and then randomly sampling from the remaining submissions.
