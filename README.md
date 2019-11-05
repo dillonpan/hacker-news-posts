@@ -23,7 +23,7 @@ Import the csv package
 import csv
 ```
 # The Hacker News data set:
-First we open the file and assign it to a variable(opened_file). Afterwards, we can use the Reader function within the CSV package to appoint the file as a CSV. Lastly, we can just close the the open() link.
+First we open the file and assign it to a variable(opened_file). Afterwards, we can use the Reader function within the CSV package to appoint the file as a CSV. We can then assign the CSV as a list of rows and seperate the first row (the column headers) from the rest of the data. Lastly, we can just close the the open() link.  
 
 Note: If you run into an error named UnicodeDecodeError, add encoding="utf8" to the open() function.
 Example: open('HN_posts_year_to_Sep_26_2016.csv','r', encoding='utf8')
@@ -33,8 +33,11 @@ Example: open('HN_posts_year_to_Sep_26_2016.csv','r', encoding='utf8')
 ```python
 opened_file = open('[directory]hacker_news.csv','r')
 hn = list(csv.reader(opened_file))
+headers = hn[0]
+hn = hn[1:]
 opened_file.close()
-print(hn[:5]) # print the first 5 rows to test
+print(headers) # print the header to test =
+print(hn[:3]) # print the first 3 rows to test
 ```
 
 [['id', 'title', 'url', 'num_points', 'num_comments', 'author', 'created_at'],  
@@ -58,13 +61,6 @@ print(hn[:5]) # print the first 5 rows to test
   '2',  
   '1',  
   'vezycash',  
-  '6/23/2016 22:20'],  
- ['11919867',  
-  'Technology ventures: From Idea to Enterprise',  
-  'https://www.amazon.com/Technology-Ventures-Enterprise-Thomas-Byers/dp/0073523429',  
-  '3',  
-  '1',  
-  'hswarna',  
-  '6/17/2016 0:01']]  
+  '6/23/2016 22:20']]  
   
   
