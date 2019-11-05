@@ -82,8 +82,8 @@ print(len(ask_posts))
 print(len(show_posts))
 print(len(other_posts))
 ```
-1744
-1162
+1744  
+1162  
 17194
 
 
