@@ -244,3 +244,6 @@ print(sorted_swap)
  [7.170212765957447, '04'],  
  [6.746478873239437, '22'],  
  [5.5777777777777775, '09']]  
+
+In conclusion, we find that hour 15:00 (3:00 PM) has the highest average of comments at 38.59 per post.
+We also notice that the afternoon-nighttime has generally more comments per post with a weird exception at 10:00 (10:00 AM). Remember, this dataset is limited and was cleaned of any posts which did not have any comments. It may or may not have had an affect on these averages.
