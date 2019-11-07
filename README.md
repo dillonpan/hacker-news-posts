@@ -27,10 +27,10 @@ First we open the file and assign it to a variable(opened_file). Afterwards, we 
 Note: If you run into an error named UnicodeDecodeError, add encoding="utf8" to the open() function.
 Example: open('HN_posts_year_to_Sep_26_2016.csv','r', encoding='utf8')
 
-# Note: Please replace [directory] below in the open() function with the link to your folder of choice.
+# Note: Please replace [directory] below in the open() function with the link to your folder of choice where hacker_news.csv is located
 
 ```python
-opened_file = open('[directory]hacker_news.csv','r')
+opened_file = open('[directory].hacker_news.csv','r')
 hn = list(csv.reader(opened_file))
 headers = hn[0]
 hn = hn[1:]
