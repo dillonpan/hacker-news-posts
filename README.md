@@ -3,11 +3,11 @@
 Project using CSV Reader, list slicing, and various functions to analyze a CSV dataset in Python
 
 # Project Details:  
-Hacker News is a site where users can submit or vote on posts about technology and computer science, similiar to Reddit. Hacker News is extremely popular in technology and startup circles, and posts that make it to the 'front page' of Hacker News generate tens of thousands, if not hundreds of thousands of views.
+Hacker News is a site where users can submit or vote on posts about technology and computer science, similar to Reddit. Hacker News is extremely popular in technology and startup circles, and posts that make it to the 'front page' of Hacker News generate tens of thousands, if not hundreds of thousands of views.
 
 There are two types of posts we will be focusing on in this project, Ask HN and Show HN posts.
 Ask HN: The user submits a question in which other users can provided a response or vote on their favorite response.
-Show HN: The user does not have a question but wants to show something ineresting, such as a project or an article
+Show HN: The user does not have a question but wants to show something interesting, such as a project or an article
 
 We'll specifically compare these two types of posts to determine the following:  
 1. Do Ask HN or Show HN posts receive more comments on average?  
@@ -22,7 +22,7 @@ Import the csv package
 import csv
 ```
 # The Hacker News data set:
-First we open the file and assign it to a variable(opened_file). Afterwards, we can use the Reader function within the CSV package to appoint the file as a CSV. We can then assign the CSV as a list of rows and seperate the first row (the column headers) from the rest of the data. Lastly, we can just close the the open() link.  
+First, we open the file and assign it to a variable(opened_file). Afterwards, we can use the Reader function within the CSV package to appoint the file as a CSV. We can then assign the CSV as a list of rows and separate the first row (the column headers) from the rest of the data. Lastly, we can just close the open() link.  
 
 Note: If you run into an error named UnicodeDecodeError, add encoding="utf8" to the open() function.
 Example: open('HN_posts_year_to_Sep_26_2016.csv','r', encoding='utf8')
@@ -63,7 +63,7 @@ print(hn[:3]) # print the first 3 rows to test
   '6/23/2016 22:20']]  
   
 # Extracting Ask HN and Show HN Posts
-We can create three seperate lists to filter between the Ask HN, Show HN, and other posts apart from each other. The title of both Ask HN and Show HN posts will generally start as accordingly, (EX. "Ask HN: I was wondering...etc..etc")
+We can create three separate lists to filter between the Ask HN, Show HN, and other posts apart from each other. The title of both Ask HN and Show HN posts will generally start as accordingly, (EX. "Ask HN: I was wondering...etc..")
 ```python
 ask_posts = []
 show_posts =[]
@@ -108,7 +108,7 @@ print(avg_show_comments)
 ```
 10.31669535283993
 
-After finding the average number of comments per post for both types of posts, we can deteremine that that ASK HN receives more comments usually. Makes sense since ASK HN posts are specifically requesting reponses/comments from other users.
+After finding the average number of comments per post for both types of posts, we can determine that that ASK HN receives more comments usually. Makes sense since ASK HN posts are specifically requesting responses/comments from other users.
 
 # Finding the Amount of Ask Posts and Comments by Hour Created
 Next, we'll determine if we can maximize the amount of comments an ask post receives by creating it at a certain time. First, we'll find the amount of ask posts created during each hour of day, along with the number of comments those posts received. Then, we'll calculate the average amount of comments ask posts created at each hour of the day receive.
@@ -118,8 +118,8 @@ import datetime as dt
 
 result_list = []
 
-# We're putting each post in to a seperate list which holds the date+time a post was created and that post's number of comments
-# Afterwards, we put each individual list in to the result_list. Essentially, it's a bunch of seperate lists within one large list
+# We're putting each post in to a separate list which holds the date+time a post was created and that post's number of comments
+# Afterwards, we put each individual list in to the result_list. Essentially, it's a bunch of separate lists within one large list
 for post in ask_posts:
     result_list.append(
         [post[6], int(post[4])]  # each individual list contains, in order: date+time creation, number of comments
@@ -246,4 +246,4 @@ print(sorted_swap)
  [5.5777777777777775, '09']]  
 
 In conclusion, we find that hour 15:00 (3:00 PM) has the highest average of comments at 38.59 per post.
-We also notice that the afternoon-nighttime has generally more comments per post with a weird exception at 10:00 (10:00 AM). Remember, this dataset is limited and was cleaned of any posts which did not have any comments. It may or may not have had an affect on these averages.
+We also notice that the afternoon-nighttime has generally more comments per post with a weird exception at 10:00 (10:00 AM). Remember, this dataset is limited and was cleaned of any posts which did not have any comments. It may or may not have influenced these averages.
